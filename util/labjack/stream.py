@@ -1,20 +1,24 @@
 import numpy as np
 import sys
 
-from u6 import U6 as LJDevice # can change to another U-series device
+from u6 import U6
 import pylsl
 
 class LabJackStream(object):
     '''
     Streams data from a LabJack device (whatever is imported above)
     to labstreaminglayer.
+
+    By default, tries to initialize a U6, but you can put in
+    the proper class for your device with device_handle argument.
     '''
 
-    def __init__(self, n_channels = 4, sfreq = 12000, resolution = 1):
+    def __init__(self, n_channels = 4, sfreq = 12000,
+                        resolution = 1, device_class = U6):
         self.n_channels = n_channels
         self.sfreq = sfreq
         self._res = resolution
-        self._init_labjack()
+        self._init_labjack(device_class)
         self.missed = 0 # keeps track of packet overruns
         self.errors = 0 # keeps track of errors
         self.finished = False
@@ -22,8 +26,8 @@ class LabJackStream(object):
         self._init_lsl() # creates LSL outlet info
 
 
-    def _init_labjack(self):
-        d = LJDevice()
+    def _init_labjack(self, device_class):
+        d = device_class()
         d.getCalibrationData()
         d.streamConfig(
             NumChannels = self.n_channels,
