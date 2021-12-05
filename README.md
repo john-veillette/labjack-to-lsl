@@ -27,6 +27,6 @@ ljs_thread.start()
 ljs.stop_stream()
 ljs_thread.join()
 ```
-In testing, I couldn't go up to the maximal sampling rate from the LabJack U'6 [documentation](https://labjack.com/support/datasheets/u6/operation/stream-mode) without dropping samples. But I got almost there e.g. 10 kHz for four analog input channels instead of the advertised 12 kHz.
+In testing, I couldn't go up to the maximal sampling rate from the LabJack U6's [documentation](https://labjack.com/support/datasheets/u6/operation/stream-mode) without dropping samples. But I got almost there e.g. 10 kHz for four analog input channels instead of the advertised 12 kHz.
 
 In old versions of `pylsl`, an error would be thrown when trying to call `pylsl` commands from a thread (other than the main thread) on Linux. Evidently, this has since been fixed -- so if you have this problem, you may just have to update your `pylsl` version.
