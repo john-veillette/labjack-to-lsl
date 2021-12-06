@@ -1,6 +1,6 @@
 # A LabJack plugin for LabStreamingLayer
 
-`util.labjack.LabJackStream` is a class that handles streaming data from a [Labjack U-series](https://labjack.com/support/datasheets/u6) device to [LabStreamingLayer](https://labstreaminglayer.readthedocs.io/info/intro.html).
+`util.labjack.LabJackStream` is a class that handles streaming data from [LabJack](https://labjack.com/) UD-series devices to [LabStreamingLayer](https://labstreaminglayer.readthedocs.io/info/intro.html), though it has currently only been tested on the [U6](https://labjack.com/support/datasheets/u6).
 
 You can just drop the `util.labjack` module into your project and import `LabJackStream` to use. You'll need some dependencies installed, namely `pylsl`, `liblsl`, `numpy`, `LabJackPython`, and the appropriate driver for your LabJack device. An example environment is in `environment.yml`
 
