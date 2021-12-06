@@ -17,7 +17,7 @@ By default, it will try to initialize a U6 device, which will obviously fail if 
 
 ```
 from u3 import U3
-ljs = LabJackStream(n_channels = 4, sfreq = 10000, device_class = U3)
+ljs = LabJackStream(n_channels = 2, sfreq = 2000, device_class = U3)
 ljs.stream_data()
 ```
 
